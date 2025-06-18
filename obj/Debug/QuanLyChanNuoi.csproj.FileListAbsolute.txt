@@ -371,3 +371,4 @@ C:\Users\CATTFAN\Desktop\laptrinhwinform\Duanchannuoi - Copy\obj\Debug\QuanLyCha
 C:\Users\CATTFAN\Desktop\laptrinhwinform\Duanchannuoi - Copy\bin\Debug\BaoCaoTangTruong.rdlc
 C:\Users\CATTFAN\Desktop\laptrinhwinform\Duanchannuoi - Copy\obj\Debug\QuanLyChanNuoi.User_case_Admin.FormBaoCaoTangTruong.resources
 C:\Users\CATTFAN\Desktop\laptrinhwinform\Duanchannuoi - Copy\obj\Debug\QuanLyChanNuoi.User_case_Admin.FormThongKeTongQuat.resources
+C:\Users\CATTFAN\Desktop\laptrinhwinform\Duanchannuoi - Copy\bin\Debug\img\Logo.png

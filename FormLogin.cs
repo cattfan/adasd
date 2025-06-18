@@ -1,13 +1,8 @@
-﻿using System;
+﻿using QuanLyChanNuoi.User_case_Admin;
+using QuanLyChanNuoi.usercase_nhan_vien;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace QuanLyChanNuoi
 {
     public partial class FormLogin : Form
@@ -17,65 +12,58 @@ namespace QuanLyChanNuoi
             { "admin", ("admin123", "Admin") },
             { "nhanvien", ("123456", "NhanVien") }
         };
+
         public FormLogin()
         {
             InitializeComponent();
         }
 
-        private void btnDangnhap_Click(object sender, EventArgs e)
+        private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            string username = txtUserName.Text.Trim();
-            string password = txtPassWord.Text.Trim();
+            string username = txtTenDangNhap.Text.Trim();
+            string password = txtMatKhau.Text.Trim();
 
             if (taiKhoans.ContainsKey(username))
             {
                 var account = taiKhoans[username];
-
                 if (account.password == password)
                 {
-                    // Phân quyền và mở form tương ứng
+                    this.Hide();
+
                     if (account.role == "Admin")
                     {
                         FormHomeAdmin adminForm = new FormHomeAdmin();
-                        adminForm.FormClosed += (s, args) => this.Show(); // Hiển thị lại form đăng nhập khi form admin đóng
+                        adminForm.FormClosed += (s, args) => this.Show();
                         adminForm.Show();
                     }
                     else if (account.role == "NhanVien")
                     {
                         FormHomeUser nvForm = new FormHomeUser();
-                        nvForm.FormClosed += (s, args) => this.Show(); // Hiển thị lại form đăng nhập khi form nhân viên đóng
+                        nvForm.FormClosed += (s, args) => this.Show();
                         nvForm.Show();
                     }
 
-                    this.Hide(); // Ẩn form đăng nhập
-                    txtPassWord.Clear();
-                    txtUserName.Clear();
-                    chkHienMatKhau.Checked = false;
+                    txtMatKhau.Clear();
+                    txtTenDangNhap.Clear();
+                    chkShowPassword.Checked = false;
                     return;
                 }
             }
+
             MessageBox.Show("Tài khoản hoặc mật khẩu không đúng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            txtPassWord.Clear();
-            txtUserName.Clear();
-            chkHienMatKhau.Checked = false;
+            txtMatKhau.Clear();
+            txtTenDangNhap.Clear();
+            chkShowPassword.Checked = false;
         }
 
-        private void chkHienMatKhau_CheckedChanged(object sender, EventArgs e)
+        private void btnThoat_Click(object sender, EventArgs e)
         {
-            txtPassWord.PasswordChar = chkHienMatKhau.Checked ? '\0' : '*';
+            Application.Exit();
         }
 
-        private void FormLogin_Load(object sender, EventArgs e)
+        private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
         {
-            txtPassWord.Clear();
-            txtUserName.Clear();
-            chkHienMatKhau.Checked = false;
-        }
-
-        private void FormLogin_Shown(object sender, EventArgs e)
-        {
-         
+            txtMatKhau.UseSystemPasswordChar = !chkShowPassword.Checked;
         }
     }
 }
-

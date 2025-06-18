@@ -248,6 +248,21 @@
     <EmbeddedResource Include="usercase nhan vien\FormVatNuoiNV.resx">
       <DependentUpon>FormVatNuoiNV.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="img\Icon\hop1.png" />
+    <None Include="img\Icon\icons8-avatar-50.png" />
+    <None Include="img\Icon\icons8-barn-50.png" />
+    <None Include="img\Icon\icons8-group-60.png" />
+    <None Include="img\Icon\icons8-growth-chart-53.png" />
+    <None Include="img\Icon\icons8-invoice-64.png" />
+    <None Include="img\Icon\icons8-log-out-50.png" />
+    <None Include="img\Icon\icons8-mail-50.png" />
+    <None Include="img\Icon\icons8-update-64.png" />
+    <None Include="img\Icon\icons8-user-50.png" />
+    <None Include="img\Icon\pawprint.png" />
+    <None Include="img\Icon\Screenshot 2025-05-23 162923.png" />
+    <None Include="img\Logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="LivestockRepost1.datasource" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -267,43 +282,15 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <None Include="img\Icon\icons8-log-out-50.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="img\Logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="img\Icon\icons8-avatar-50.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="img\Icon\icons8-mail-50.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="img\Icon\icons8-update-64.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="img\Icon\icons8-growth-chart-53.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="img\Icon\icons8-invoice-64.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="img\Icon\hop1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="img\Icon\icons8-user-50.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="img\Icon\icons8-group-60.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="img\Icon\Screenshot 2025-05-23 162923.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="img\Icon\icons8-barn-50.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="img\Icon\icons8-barn-501.png" />
+    <Content Include="img\Icon\icons8-bell-50.png" />
+    <Content Include="img\Icon\icons8-lock-50.png" />
+    <Content Include="img\Icon\icons8-log-out-64.png" />
+    <Content Include="img\Icon\icons8-phone-50.png" />
+    <Content Include="img\Icon\icons8-pig-50.png" />
     <Content Include="img\Icon\icons8-shop-64.png" />
+    <Content Include="img\ico\Logo-removebg-preview.ico" />
+    <Content Include="img\ico\Logo.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -317,7 +304,6 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="img\Icon\pawprint.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
