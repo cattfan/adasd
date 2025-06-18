@@ -1,12 +1,193 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{964D7054-7112-4062-B90C-9C5030EAB8E9}|QuanLyChanNuoi.csproj|c:\\users\\cattfan\\desktop\\laptrinhwinform\\duanchannuoi - copy\\thongketongquat.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
+      "RelativeMoniker": "D:0:0:{964D7054-7112-4062-B90C-9C5030EAB8E9}|QuanLyChanNuoi.csproj|solutionrelative:thongketongquat.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{964D7054-7112-4062-B90C-9C5030EAB8E9}|QuanLyChanNuoi.csproj|C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{964D7054-7112-4062-B90C-9C5030EAB8E9}|QuanLyChanNuoi.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{964D7054-7112-4062-B90C-9C5030EAB8E9}|QuanLyChanNuoi.csproj|C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\user case admin\\formthongketongquat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{964D7054-7112-4062-B90C-9C5030EAB8E9}|QuanLyChanNuoi.csproj|solutionrelative:user case admin\\formthongketongquat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{964D7054-7112-4062-B90C-9C5030EAB8E9}|QuanLyChanNuoi.csproj|C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\user case admin\\formthongketongquat.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{964D7054-7112-4062-B90C-9C5030EAB8E9}|QuanLyChanNuoi.csproj|solutionrelative:user case admin\\formthongketongquat.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{964D7054-7112-4062-B90C-9C5030EAB8E9}|QuanLyChanNuoi.csproj|C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\user case admin\\formthongketongquat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{964D7054-7112-4062-B90C-9C5030EAB8E9}|QuanLyChanNuoi.csproj|solutionrelative:user case admin\\formthongketongquat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{964D7054-7112-4062-B90C-9C5030EAB8E9}|QuanLyChanNuoi.csproj|C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\thongketongquat.rdlc||{C76D83F8-A489-11D0-8195-00A0C91BBEE3}",
+      "RelativeMoniker": "D:0:0:{964D7054-7112-4062-B90C-9C5030EAB8E9}|QuanLyChanNuoi.csproj|solutionrelative:thongketongquat.rdlc||{C76D83F8-A489-11D0-8195-00A0C91BBEE3}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{964D7054-7112-4062-B90C-9C5030EAB8E9}|QuanLyChanNuoi.csproj|C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\formbaocaotangtruong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{964D7054-7112-4062-B90C-9C5030EAB8E9}|QuanLyChanNuoi.csproj|solutionrelative:formbaocaotangtruong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{964D7054-7112-4062-B90C-9C5030EAB8E9}|QuanLyChanNuoi.csproj|C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\formbaocaotangtruong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{964D7054-7112-4062-B90C-9C5030EAB8E9}|QuanLyChanNuoi.csproj|solutionrelative:formbaocaotangtruong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{964D7054-7112-4062-B90C-9C5030EAB8E9}|QuanLyChanNuoi.csproj|C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\baocaotangtruong.rdlc||{C76D83F8-A489-11D0-8195-00A0C91BBEE3}",
+      "RelativeMoniker": "D:0:0:{964D7054-7112-4062-B90C-9C5030EAB8E9}|QuanLyChanNuoi.csproj|solutionrelative:baocaotangtruong.rdlc||{C76D83F8-A489-11D0-8195-00A0C91BBEE3}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{964D7054-7112-4062-B90C-9C5030EAB8E9}|QuanLyChanNuoi.csproj|C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\thongkereport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{964D7054-7112-4062-B90C-9C5030EAB8E9}|QuanLyChanNuoi.csproj|solutionrelative:thongkereport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{964D7054-7112-4062-B90C-9C5030EAB8E9}|QuanLyChanNuoi.csproj|C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\baocaotangtruong.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
+      "RelativeMoniker": "D:0:0:{964D7054-7112-4062-B90C-9C5030EAB8E9}|QuanLyChanNuoi.csproj|solutionrelative:baocaotangtruong.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FormThongKeTongQuat.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\User case Admin\\FormThongKeTongQuat.Designer.cs",
+              "RelativeDocumentMoniker": "User case Admin\\FormThongKeTongQuat.Designer.cs",
+              "ToolTip": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\User case Admin\\FormThongKeTongQuat.Designer.cs",
+              "RelativeToolTip": "User case Admin\\FormThongKeTongQuat.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAowDAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T15:00:12.989Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FormThongKeTongQuat.cs",
+              "DocumentMoniker": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\User case Admin\\FormThongKeTongQuat.cs",
+              "RelativeDocumentMoniker": "User case Admin\\FormThongKeTongQuat.cs",
+              "ToolTip": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\User case Admin\\FormThongKeTongQuat.cs",
+              "RelativeToolTip": "User case Admin\\FormThongKeTongQuat.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAvwDoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T14:59:11.865Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FormThongKeTongQuat.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\User case Admin\\FormThongKeTongQuat.cs",
+              "RelativeDocumentMoniker": "User case Admin\\FormThongKeTongQuat.cs",
+              "ToolTip": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\User case Admin\\FormThongKeTongQuat.cs [Design]",
+              "RelativeToolTip": "User case Admin\\FormThongKeTongQuat.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T14:58:50.965Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ThongKeTongQuat.rdlc [Design]",
+              "DocumentMoniker": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\ThongKeTongQuat.rdlc",
+              "RelativeDocumentMoniker": "ThongKeTongQuat.rdlc",
+              "ToolTip": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\ThongKeTongQuat.rdlc [Design]",
+              "RelativeToolTip": "ThongKeTongQuat.rdlc [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
+              "WhenOpened": "2025-06-15T14:51:13.848Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T14:44:06.238Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ThongKeTongQuat.rdlc",
+              "DocumentMoniker": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\ThongKeTongQuat.rdlc",
+              "RelativeDocumentMoniker": "ThongKeTongQuat.rdlc",
+              "ToolTip": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\ThongKeTongQuat.rdlc",
+              "RelativeToolTip": "ThongKeTongQuat.rdlc",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
+              "WhenOpened": "2025-06-15T14:51:02.185Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FormBaoCaoTangTruong.cs",
+              "DocumentMoniker": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\FormBaoCaoTangTruong.cs",
+              "RelativeDocumentMoniker": "FormBaoCaoTangTruong.cs",
+              "ToolTip": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\FormBaoCaoTangTruong.cs",
+              "RelativeToolTip": "FormBaoCaoTangTruong.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T14:37:09.377Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FormBaoCaoTangTruong.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\FormBaoCaoTangTruong.cs",
+              "RelativeDocumentMoniker": "FormBaoCaoTangTruong.cs",
+              "ToolTip": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\FormBaoCaoTangTruong.cs [Design]",
+              "RelativeToolTip": "FormBaoCaoTangTruong.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T14:36:13.01Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "BaoCaoTangTruong.rdlc [Design]",
+              "DocumentMoniker": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\BaoCaoTangTruong.rdlc",
+              "RelativeDocumentMoniker": "BaoCaoTangTruong.rdlc",
+              "ToolTip": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\BaoCaoTangTruong.rdlc [Design]",
+              "RelativeToolTip": "BaoCaoTangTruong.rdlc [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
+              "WhenOpened": "2025-06-15T14:33:45.898Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "BaoCaoTangTruong.rdlc",
+              "DocumentMoniker": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\BaoCaoTangTruong.rdlc",
+              "RelativeDocumentMoniker": "BaoCaoTangTruong.rdlc",
+              "ToolTip": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\BaoCaoTangTruong.rdlc",
+              "RelativeToolTip": "BaoCaoTangTruong.rdlc",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
+              "WhenOpened": "2025-06-15T14:28:22.309Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ThongkeReport.cs",
+              "DocumentMoniker": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\ThongkeReport.cs",
+              "RelativeDocumentMoniker": "ThongkeReport.cs",
+              "ToolTip": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\ThongkeReport.cs",
+              "RelativeToolTip": "ThongkeReport.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T14:12:44.851Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

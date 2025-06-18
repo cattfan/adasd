@@ -1,7 +1,4 @@
-using System;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity;
-using System.Linq;
+﻿using System.Data.Entity;
 
 namespace QuanLyChanNuoi.Models
 {
@@ -23,7 +20,8 @@ namespace QuanLyChanNuoi.Models
         public virtual DbSet<ToNhanVien> ToNhanViens { get; set; }
         public virtual DbSet<VatNuoi> VatNuois { get; set; }
         public virtual DbSet<VatTu> VatTus { get; set; }
-
+        // Dòng mới được thêm vào đây
+        public virtual DbSet<LichSuTangTruong> LichSuTangTruongs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -138,6 +136,13 @@ namespace QuanLyChanNuoi.Models
                 .HasMany(e => e.NhaCungCap_VatTu)
                 .WithRequired(e => e.VatTu)
                 .WillCascadeOnDelete(false);
+
+            // Cấu hình mới được thêm vào đây
+            modelBuilder.Entity<LichSuTangTruong>()
+                .Property(e => e.MaVatNuoi)
+                .IsUnicode(false);
+
+
         }
     }
 }

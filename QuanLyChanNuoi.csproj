@@ -79,7 +79,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormBaoCaoTangTruong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBaoCaoTangTruong.Designer.cs">
+      <DependentUpon>FormBaoCaoTangTruong.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\LichSuTangTruong.cs" />
+    <Compile Include="User case Admin\FormTheoDoiTangTruong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User case Admin\FormTheoDoiTangTruong.Designer.cs">
+      <DependentUpon>FormTheoDoiTangTruong.cs</DependentUpon>
+    </Compile>
     <Compile Include="usercase nhan vien\FormHomeUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,12 +99,12 @@
       <DependentUpon>FormHomeUser.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="thongkeReport.cs" />
-    <Compile Include="User case Admin\FormBaocaosthongke.cs">
+    <Compile Include="ThongkeReport.cs" />
+    <Compile Include="User case Admin\FormThongKeTongQuat.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="User case Admin\FormBaocaosthongke.Designer.cs">
-      <DependentUpon>FormBaocaosthongke.cs</DependentUpon>
+    <Compile Include="User case Admin\FormThongKeTongQuat.Designer.cs">
+      <DependentUpon>FormThongKeTongQuat.cs</DependentUpon>
     </Compile>
     <Compile Include="User case Admin\FormNhaCungCap.cs">
       <SubType>Form</SubType>
@@ -176,14 +188,21 @@
     <Compile Include="usercase nhan vien\FormVatNuoiNV.Designer.cs">
       <DependentUpon>FormVatNuoiNV.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormBaoCaoTangTruong.resx">
+      <DependentUpon>FormBaoCaoTangTruong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKeTongQuat.rdlc" />
+    <EmbeddedResource Include="User case Admin\FormTheoDoiTangTruong.resx">
+      <DependentUpon>FormTheoDoiTangTruong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="usercase nhan vien\FormHomeUser.resx">
       <DependentUpon>FormHomeUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportthongke.rdlc">
+    <EmbeddedResource Include="BaoCaoTangTruong.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="User case Admin\FormBaocaosthongke.resx">
-      <DependentUpon>FormBaocaosthongke.cs</DependentUpon>
+    <EmbeddedResource Include="User case Admin\FormThongKeTongQuat.resx">
+      <DependentUpon>FormThongKeTongQuat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User case Admin\FormNhaCungCap.resx">
       <DependentUpon>FormNhaCungCap.cs</DependentUpon>
@@ -240,22 +259,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="QuanLyChanNuoi.Models.ChiTietHoaDon.datasource" />
-    <None Include="QuanLyChanNuoi.Models.ChucVuNhanVien.datasource" />
-    <None Include="QuanLyChanNuoi.Models.ChuongVatNuoi.datasource" />
-    <None Include="QuanLyChanNuoi.Models.HoaDon.datasource" />
-    <None Include="QuanLyChanNuoi.Models.LiveStockContextDB.datasource" />
-    <None Include="QuanLyChanNuoi.Models.Log_LichSuChuong.datasource" />
-    <None Include="QuanLyChanNuoi.Models.NhaCungCap.datasource" />
-    <None Include="QuanLyChanNuoi.Models.NhaCungCap_VatTu.datasource" />
-    <None Include="QuanLyChanNuoi.Models.NhanVien.datasource" />
-    <None Include="QuanLyChanNuoi.Models.ToNhanVien.datasource" />
-    <None Include="QuanLyChanNuoi.Models.VatNuoi.datasource" />
-    <None Include="QuanLyChanNuoi.Models.VatTu.datasource" />
-    <None Include="QuanLyChanNuoi.Properties.Resources.datasource" />
-    <None Include="QuanLyChanNuoi.Properties.Settings.datasource" />
-    <None Include="QuanLyChanNuoi.User_case_Admin.FormBaocaosthongke.datasource" />
-    <None Include="QuanLyChanNuoi.User_case_Admin.FormXemhoadon.datasource" />
     <None Include="SqlServerTypes.Utilities.datasource" />
     <None Include="thongkeReport.datasource" />
   </ItemGroup>

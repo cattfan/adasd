@@ -1,4 +1,4 @@
-namespace QuanLyChanNuoi.Models
+﻿namespace QuanLyChanNuoi.Models
 {
     using System;
     using System.Collections.Generic;
@@ -13,6 +13,8 @@ namespace QuanLyChanNuoi.Models
         public VatNuoi()
         {
             NhanViens = new HashSet<NhanVien>();
+            // Dòng mới được thêm vào đây
+            LichSuTangTruongs = new HashSet<LichSuTangTruong>();
         }
 
         [Key]
@@ -34,5 +36,9 @@ namespace QuanLyChanNuoi.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NhanVien> NhanViens { get; set; }
+
+        // Thuộc tính mới được thêm vào đây
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LichSuTangTruong> LichSuTangTruongs { get; set; }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyChanNuoi
 {
-    internal class thongkeReport
+    internal class ThongkeReport
     {
         public int Nhanvien { get; set; }
         public int Vatnuoi { get; set; }

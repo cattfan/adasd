@@ -50,7 +50,7 @@ namespace QuanLyChanNuoi
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide(); // Ẩn form admin trước khi mở form vật nuôi
-            FormBaocaosthongke formbaocao = new FormBaocaosthongke();
+            FormThongKeTongQuat formbaocao = new FormThongKeTongQuat();
             formbaocao.FormClosed += (s, args) => this.Show(); // Hiển thị lại form admin khi form nhân viên đóng
             formbaocao.Show();
         }

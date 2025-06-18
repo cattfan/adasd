@@ -1,16 +1,9 @@
 ﻿namespace QuanLyChanNuoi.User_case_Admin
 {
-    partial class FormBaocaosthongke
+    partial class FormThongKeTongQuat
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,16 +13,10 @@
             base.Dispose(disposing);
         }
 
-
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBaocaosthongke));
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
@@ -39,21 +26,19 @@
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(822, 265);
+            this.reportViewer1.Size = new System.Drawing.Size(800, 600);
             this.reportViewer1.TabIndex = 0;
             // 
-            // FormBaocaosthongke
+            // FormThongKeTongQuat
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(822, 265);
+            this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.reportViewer1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FormBaocaosthongke";
-            this.Text = "FormBaocaosthongke";
-            this.Load += new System.EventHandler(this.FormBaocaosthongke_Load);
+            this.Name = "FormThongKeTongQuat";
+            this.Text = "Báo Cáo Thống Kê Tổng Quát Trang Trại";
+            this.Load += new System.EventHandler(this.FormThongKeTongQuat_Load);
             this.ResumeLayout(false);
-
         }
 
         #endregion

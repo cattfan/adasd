@@ -12,27 +12,14 @@ namespace QuanLyChanNuoi.Models
     public partial class LichSuTangTruong
     {
         [Key]
-        public int ID { get; set; }
-
-        [Required]
-        [StringLength(10)]
-        public string MaVatNuoi { get; set; }
-
-        public DateTime NgayKiemTra { get; set; }
-
+        public int ID { get; set; } // Đổi tên cho nhất quán
+        public string MaVatNuoi { get; set; } // <--- Sửa tên và kiểu dữ liệu
+        public DateTime NgayKiemTra { get; set; } // <--- Sửa tên cho khớp với form
         public int? SoLuongMau { get; set; }
-
         public double? TongCanNangMau { get; set; }
-
         public double? CanNangTrungBinhMau { get; set; }
-
         public int? SoLuongThucTeTrongDan { get; set; }
-
         public double? TongTrongLuongUocTinh { get; set; }
-
-        [StringLength(255)]
         public string GhiChu { get; set; }
-
-        public virtual VatNuoi VatNuoi { get; set; }
     }
 }
