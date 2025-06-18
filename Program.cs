@@ -1,5 +1,4 @@
-﻿using QuanLyChanNuoi.User_case_Admin;
-using QuanLyChanNuoi.usercase_nhan_vien;
+﻿using QuanLyChanNuoi.User_case_Admin;using QuanLyChanNuoi.usercase_nhan_vien;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +17,7 @@ namespace QuanLyChanNuoi
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormThongKeTongQuat());
+            Application.Run(new FormLogin());
         }
     }
 }

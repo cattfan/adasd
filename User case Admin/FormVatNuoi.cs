@@ -15,7 +15,8 @@ namespace QuanLyChanNuoi
 {
     public partial class FormVatNuoi : Form
     {
-        private LiveStockContextDB db = new LiveStockContextDB();
+        LiveStockContextDB context = new LiveStockContextDB();
+
         public FormVatNuoi()
         {
             InitializeComponent();
@@ -23,177 +24,188 @@ namespace QuanLyChanNuoi
 
         private void FormVatNuoi_Load(object sender, EventArgs e)
         {
-            LoadVatNuoi();
-            LoadComboBoxes();
-            ClearInputFields();
-            StyleDataGridView();
+            try
+            {
+                SetupDataGridView();
+                LoadChuongDataIntoComboBox();
+                LoadAllVatNuoi();
+                SetInitialControlState();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void StyleDataGridView()
+        private void SetupDataGridView()
         {
-            dgvVatNuoi.RowHeadersVisible = false;
-            dgvVatNuoi.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvVatNuoi.AllowUserToAddRows = false;
-            dgvVatNuoi.AllowUserToDeleteRows = false;
-            dgvVatNuoi.ReadOnly = true;
-
-            dgvVatNuoi.EnableHeadersVisualStyles = false;
-            dgvVatNuoi.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dgvVatNuoi.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
-            dgvVatNuoi.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dgvVatNuoi.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-
-            dgvVatNuoi.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
-            dgvVatNuoi.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvVatNuoi.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
-            dgvVatNuoi.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
-            dgvVatNuoi.BackgroundColor = Color.White;
-
             dgvVatNuoi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvVatNuoi.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
+            dgvVatNuoi.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvVatNuoi.RowsDefaultCellStyle.BackColor = Color.WhiteSmoke;
+            dgvVatNuoi.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
         }
 
-        private void LoadVatNuoi()
+        private void SetInitialControlState()
         {
-            try
-            {
-                var dsVatNuoi = db.VatNuois.ToList();
-                BindGrid(dsVatNuoi);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi tải dữ liệu Vật nuôi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            txtMaVatNuoi.Enabled = false;
+            nudSoLuong.Minimum = 1;
+            nudSoLuong.Maximum = 10000;
         }
 
-        private void LoadComboBoxes()
-        {
-            try
-            {
-                cbMaChuong.DataSource = db.ChuongVatNuois.ToList();
-                cbMaChuong.DisplayMember = "MaChuong";
-                cbMaChuong.ValueMember = "MaChuong";
-                cbMaChuong.SelectedIndex = -1;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi tải dữ liệu Chuồng: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void BindGrid(List<VatNuoi> vatNuois)
+        private void BindGrid(List<VatNuoi> vatNuoiList)
         {
             dgvVatNuoi.Rows.Clear();
-            foreach (var vn in vatNuois)
+            foreach (var item in vatNuoiList)
             {
                 int index = dgvVatNuoi.Rows.Add();
-                dgvVatNuoi.Rows[index].Cells[0].Value = vn.MaVatNuoi;
-                dgvVatNuoi.Rows[index].Cells[1].Value = vn.TenVatNuoi;
-                dgvVatNuoi.Rows[index].Cells[2].Value = vn.NgayNhap?.ToString("dd/MM/yyyy");
-                dgvVatNuoi.Rows[index].Cells[3].Value = vn.MaChuong;
-                dgvVatNuoi.Rows[index].Cells[4].Value = vn.SoLuong;
+                dgvVatNuoi.Rows[index].Cells["MaVatNuoiColumn"].Value = item.MaVatNuoi;
+                dgvVatNuoi.Rows[index].Cells["TenVatNuoiColumn"].Value = item.TenVatNuoi;
+                dgvVatNuoi.Rows[index].Cells["NgayNhapColumn"].Value = item.NgayNhap?.ToString("dd/MM/yyyy");
+                dgvVatNuoi.Rows[index].Cells["MaChuongColumn"].Value = item.MaChuong;
+                dgvVatNuoi.Rows[index].Cells["SoLuongColumn"].Value = item.SoLuong;
             }
+        }
+
+        private void LoadAllVatNuoi()
+        {
+            var allVatNuoi = context.VatNuois.ToList();
+            BindGrid(allVatNuoi);
+        }
+
+        private void LoadChuongDataIntoComboBox()
+        {
+            cboMaChuong.DataSource = context.ChuongVatNuois.ToList();
+            cboMaChuong.DisplayMember = "TenChuong";
+            cboMaChuong.ValueMember = "MaChuong";
+            cboMaChuong.SelectedIndex = -1;
         }
 
         private void ClearInputFields()
         {
-            txtMaVatNuoi.Clear();
-            txtTenVatNuoi.Clear();
+            txtMaVatNuoi.Text = "";
+            txtTenVatNuoi.Text = "";
             dtNgayNhap.Value = DateTime.Now;
-            cbMaChuong.SelectedIndex = -1;
-            txtSoLuong.Clear();
-            txtMaVatNuoi.Focus();
+            cboMaChuong.SelectedIndex = -1;
+            nudSoLuong.Value = 1;
+            txtTenVatNuoi.Focus();
+            errorProvider1.Clear();
         }
 
-        private void dgvVatNuoi_CellClick(object sender, DataGridViewCellEventArgs e)
+        private bool IsDataValid()
         {
-            if (e.RowIndex >= 0)
+            errorProvider1.Clear();
+            bool isValid = true;
+
+            if (string.IsNullOrWhiteSpace(txtTenVatNuoi.Text))
             {
-                DataGridViewRow row = dgvVatNuoi.Rows[e.RowIndex];
-                txtMaVatNuoi.Text = row.Cells[0].Value?.ToString();
-                txtTenVatNuoi.Text = row.Cells[1].Value?.ToString();
-                if (DateTime.TryParse(row.Cells[2].Value?.ToString(), out var date))
-                {
-                    dtNgayNhap.Value = date;
-                }
-                cbMaChuong.SelectedValue = row.Cells[3].Value ?? -1;
-                txtSoLuong.Text = row.Cells[4].Value?.ToString();
+                errorProvider1.SetError(txtTenVatNuoi, "Tên vật nuôi không được để trống.");
+                isValid = false;
             }
+
+            if (cboMaChuong.SelectedValue == null)
+            {
+                errorProvider1.SetError(cboMaChuong, "Vui lòng chọn chuồng.");
+                isValid = false;
+            }
+
+            return isValid;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            // TODO: Add logic for Add button here
+            if (!IsDataValid())
+            {
+                return;
+            }
+
+            try
+            {
+                var newVatNuoi = new VatNuoi
+                {
+                    MaVatNuoi = "VN" + DateTime.Now.ToString("yyMMddHHmmss"),
+                    TenVatNuoi = txtTenVatNuoi.Text,
+                    NgayNhap = dtNgayNhap.Value,
+                    SoLuong = (int)nudSoLuong.Value,
+                    MaChuong = cboMaChuong.SelectedValue.ToString()
+                };
+                context.VatNuois.Add(newVatNuoi);
+                context.SaveChanges();
+
+                LoadAllVatNuoi();
+                MessageBox.Show("Thêm mới vật nuôi thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ClearInputFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi khi thêm mới: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtMaVatNuoi.Text))
+            if (string.IsNullOrEmpty(txtMaVatNuoi.Text))
             {
-                MessageBox.Show("Vui lòng chọn một vật nuôi để sửa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng chọn một vật nuôi từ danh sách để sửa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            // Add other update logic here
+
+            if (!IsDataValid())
+            {
+                return;
+            }
+
+            try
+            {
+                string maVatNuoi = txtMaVatNuoi.Text;
+                var dbUpdate = context.VatNuois.FirstOrDefault(p => p.MaVatNuoi == maVatNuoi);
+                if (dbUpdate != null)
+                {
+                    dbUpdate.TenVatNuoi = txtTenVatNuoi.Text;
+                    dbUpdate.NgayNhap = dtNgayNhap.Value;
+                    dbUpdate.SoLuong = (int)nudSoLuong.Value;
+                    dbUpdate.MaChuong = cboMaChuong.SelectedValue.ToString();
+
+                    context.SaveChanges();
+
+                    LoadAllVatNuoi();
+                    MessageBox.Show("Cập nhật thông tin thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi khi cập nhật: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (dgvVatNuoi.SelectedRows.Count == 0)
+            if (string.IsNullOrEmpty(txtMaVatNuoi.Text))
             {
-                MessageBox.Show("Vui lòng chọn một Vật nuôi để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng chọn một vật nuôi để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            string maVN = dgvVatNuoi.SelectedRows[0].Cells[0].Value?.ToString();
-            DialogResult confirm = MessageBox.Show($"Bạn có chắc chắn muốn xóa Vật nuôi '{maVN}' không? Mọi dữ liệu liên quan cũng sẽ bị xóa.", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if (confirm == DialogResult.Yes)
+            DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn xóa vật nuôi '{txtTenVatNuoi.Text}' không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
             {
                 try
                 {
-                    VatNuoi vnToDelete = db.VatNuois
-                                          .Include(v => v.LichSuTangTruongs)
-                                          .Include(v => v.NhanViens)
-                                          .SingleOrDefault(v => v.MaVatNuoi == maVN);
-
-                    if (vnToDelete != null)
+                    string maVatNuoi = txtMaVatNuoi.Text;
+                    var dbVatNuoi = context.VatNuois.FirstOrDefault(p => p.MaVatNuoi == maVatNuoi);
+                    if (dbVatNuoi != null)
                     {
-                        vnToDelete.LichSuTangTruongs.Clear();
-                        vnToDelete.NhanViens.Clear();
-                        var relatedLogs = db.Log_LichSuChuong.Where(log => log.MaVatNuoi == maVN).ToList();
-                        if (relatedLogs.Any())
-                        {
-                            db.Log_LichSuChuong.RemoveRange(relatedLogs);
-                        }
-                        db.VatNuois.Remove(vnToDelete);
-                        db.SaveChanges();
-
-                        MessageBox.Show("Xóa Vật nuôi và tất cả dữ liệu liên quan thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadVatNuoi();
+                        context.VatNuois.Remove(dbVatNuoi);
+                        context.SaveChanges();
+                        LoadAllVatNuoi();
                         ClearInputFields();
+                        MessageBox.Show("Xóa vật nuôi thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 catch (Exception ex)
                 {
-                    string errorMessage = "Lỗi khi xóa Vật nuôi: " + ex.Message;
-                    if (ex.InnerException != null)
-                    {
-                        errorMessage += "\n\nChi tiết: " + ex.InnerException.Message;
-                    }
-                    MessageBox.Show(errorMessage, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Đã xảy ra lỗi khi xóa: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-        }
-
-        private void btnTheoDoi_Click(object sender, EventArgs e)
-        {
-            if (dgvVatNuoi.CurrentRow != null)
-            {
-                string maVatNuoiDuocChon = dgvVatNuoi.CurrentRow.Cells[0].Value.ToString();
-                FormTheoDoiTangTruong formTheoDoi = new FormTheoDoiTangTruong(maVatNuoiDuocChon, db);
-                formTheoDoi.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn một lô vật nuôi trong danh sách để theo dõi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -202,14 +214,49 @@ namespace QuanLyChanNuoi
             this.Close();
         }
 
+
+
+        private void dgvVatNuoi_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dgvVatNuoi.Rows.Count)
+            {
+                DataGridViewRow row = dgvVatNuoi.Rows[e.RowIndex];
+
+                if (row.Cells["MaVatNuoiColumn"].Value != null)
+                {
+                    txtMaVatNuoi.Text = row.Cells["MaVatNuoiColumn"].Value.ToString();
+                    txtTenVatNuoi.Text = row.Cells["TenVatNuoiColumn"].Value.ToString();
+                    if (DateTime.TryParse(row.Cells["NgayNhapColumn"].Value.ToString(), out DateTime ngayNhap))
+                    {
+                        dtNgayNhap.Value = ngayNhap;
+                    }
+                    cboMaChuong.SelectedValue = row.Cells["MaChuongColumn"].Value;
+                    nudSoLuong.Value = Convert.ToDecimal(row.Cells["SoLuongColumn"].Value);
+                }
+            }
+        }
+
         private void txtTimKiem_TextChanged(object sender, EventArgs e)
         {
             string keyword = txtTimKiem.Text.Trim().ToLower();
-            var filteredList = db.VatNuois
-                                 .Where(vn => vn.MaVatNuoi.ToLower().Contains(keyword) ||
-                                              vn.TenVatNuoi.ToLower().Contains(keyword))
-                                 .ToList();
+            var filteredList = context.VatNuois
+                .Where(vn => vn.TenVatNuoi.ToLower().Contains(keyword) || vn.MaVatNuoi.ToLower().Contains(keyword))
+                .ToList();
             BindGrid(filteredList);
+        }
+
+        private void btnTheoDoi_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtMaVatNuoi.Text))
+            {
+                string maVatNuoi = txtMaVatNuoi.Text;
+                FormTheoDoiTangTruong formTheoDoi = new FormTheoDoiTangTruong(maVatNuoi, context);
+                formTheoDoi.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một vật nuôi từ danh sách để theo dõi.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
