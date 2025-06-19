@@ -1,12 +1,86 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{964D7054-7112-4062-B90C-9C5030EAB8E9}|QuanLyChanNuoi.csproj|c:\\users\\cattfan\\desktop\\laptrinhwinform\\duanchannuoi - copy\\user case admin\\formvatnuoi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{964D7054-7112-4062-B90C-9C5030EAB8E9}|QuanLyChanNuoi.csproj|solutionrelative:user case admin\\formvatnuoi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{964D7054-7112-4062-B90C-9C5030EAB8E9}|QuanLyChanNuoi.csproj|c:\\users\\cattfan\\desktop\\laptrinhwinform\\duanchannuoi - copy\\user case admin\\formvatnuoi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{964D7054-7112-4062-B90C-9C5030EAB8E9}|QuanLyChanNuoi.csproj|solutionrelative:user case admin\\formvatnuoi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{964D7054-7112-4062-B90C-9C5030EAB8E9}|QuanLyChanNuoi.csproj|c:\\users\\cattfan\\desktop\\laptrinhwinform\\duanchannuoi - copy\\user case admin\\formtheodoitangtruong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{964D7054-7112-4062-B90C-9C5030EAB8E9}|QuanLyChanNuoi.csproj|solutionrelative:user case admin\\formtheodoitangtruong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{964D7054-7112-4062-B90C-9C5030EAB8E9}|QuanLyChanNuoi.csproj|c:\\users\\cattfan\\desktop\\laptrinhwinform\\duanchannuoi - copy\\user case admin\\formtheodoitangtruong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{964D7054-7112-4062-B90C-9C5030EAB8E9}|QuanLyChanNuoi.csproj|solutionrelative:user case admin\\formtheodoitangtruong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FormVatNuoi.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\User case Admin\\FormVatNuoi.cs",
+              "RelativeDocumentMoniker": "User case Admin\\FormVatNuoi.cs",
+              "ToolTip": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\User case Admin\\FormVatNuoi.cs [Design]*",
+              "RelativeToolTip": "User case Admin\\FormVatNuoi.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T13:44:04.702Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FormTheoDoiTangTruong.cs",
+              "DocumentMoniker": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\User case Admin\\FormTheoDoiTangTruong.cs",
+              "RelativeDocumentMoniker": "User case Admin\\FormTheoDoiTangTruong.cs",
+              "ToolTip": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\User case Admin\\FormTheoDoiTangTruong.cs",
+              "RelativeToolTip": "User case Admin\\FormTheoDoiTangTruong.cs",
+              "ViewState": "AgIAAJcAAAAAAAAAAAAqwMYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T13:39:25.537Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FormTheoDoiTangTruong.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\User case Admin\\FormTheoDoiTangTruong.cs",
+              "RelativeDocumentMoniker": "User case Admin\\FormTheoDoiTangTruong.cs",
+              "ToolTip": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\User case Admin\\FormTheoDoiTangTruong.cs [Design]",
+              "RelativeToolTip": "User case Admin\\FormTheoDoiTangTruong.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T13:39:22.491Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FormVatNuoi.cs",
+              "DocumentMoniker": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\User case Admin\\FormVatNuoi.cs",
+              "RelativeDocumentMoniker": "User case Admin\\FormVatNuoi.cs",
+              "ToolTip": "C:\\Users\\CATTFAN\\Desktop\\laptrinhwinform\\Duanchannuoi - Copy\\User case Admin\\FormVatNuoi.cs*",
+              "RelativeToolTip": "User case Admin\\FormVatNuoi.cs*",
+              "ViewState": "AgIAAIIAAAAAAAAAAAAgwLMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T13:35:09.254Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

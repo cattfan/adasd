@@ -106,7 +106,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 17);
+            this.label1.Size = new System.Drawing.Size(67, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã vật tư:";
             // 
@@ -116,16 +116,16 @@
             this.txtMaVatTu.Enabled = false;
             this.txtMaVatTu.Location = new System.Drawing.Point(77, 3);
             this.txtMaVatTu.Name = "txtMaVatTu";
-            this.txtMaVatTu.Size = new System.Drawing.Size(287, 25);
+            this.txtMaVatTu.Size = new System.Drawing.Size(289, 25);
             this.txtMaVatTu.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(370, 5);
+            this.label3.Location = new System.Drawing.Point(372, 5);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 17);
+            this.label3.Size = new System.Drawing.Size(73, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "Đơn vị tính:";
             // 
@@ -133,9 +133,9 @@
             // 
             this.txtDonViTinh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDonViTinh.Enabled = false;
-            this.txtDonViTinh.Location = new System.Drawing.Point(447, 3);
+            this.txtDonViTinh.Location = new System.Drawing.Point(451, 3);
             this.txtDonViTinh.Name = "txtDonViTinh";
-            this.txtDonViTinh.Size = new System.Drawing.Size(294, 25);
+            this.txtDonViTinh.Size = new System.Drawing.Size(290, 25);
             this.txtDonViTinh.TabIndex = 5;
             // 
             // label2
@@ -144,7 +144,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(3, 32);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 17);
+            this.label2.Size = new System.Drawing.Size(68, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Tên vật tư:";
             // 
@@ -154,14 +154,14 @@
             this.txtTenVatTu.Enabled = false;
             this.txtTenVatTu.Location = new System.Drawing.Point(77, 30);
             this.txtTenVatTu.Name = "txtTenVatTu";
-            this.txtTenVatTu.Size = new System.Drawing.Size(287, 25);
+            this.txtTenVatTu.Size = new System.Drawing.Size(289, 25);
             this.txtTenVatTu.TabIndex = 6;
             // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(370, 32);
+            this.label4.Location = new System.Drawing.Point(372, 32);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 17);
             this.label4.TabIndex = 15;
@@ -170,9 +170,9 @@
             // txtSoLuong
             // 
             this.txtSoLuong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSoLuong.Location = new System.Drawing.Point(447, 30);
+            this.txtSoLuong.Location = new System.Drawing.Point(451, 30);
             this.txtSoLuong.Name = "txtSoLuong";
-            this.txtSoLuong.Size = new System.Drawing.Size(294, 25);
+            this.txtSoLuong.Size = new System.Drawing.Size(290, 25);
             this.txtSoLuong.TabIndex = 16;
             // 
             // label5

@@ -334,26 +334,31 @@
             // 
             // MaVatNuoiColumn
             // 
+            this.MaVatNuoiColumn.DataPropertyName = "MaVatNuoi";
             this.MaVatNuoiColumn.HeaderText = "Mã vật nuôi";
             this.MaVatNuoiColumn.Name = "MaVatNuoiColumn";
             // 
             // TenVatNuoiColumn
             // 
+            this.TenVatNuoiColumn.DataPropertyName = "TenVatNuoi";
             this.TenVatNuoiColumn.HeaderText = "Tên vật nuôi";
             this.TenVatNuoiColumn.Name = "TenVatNuoiColumn";
             // 
             // NgayNhapColumn
             // 
+            this.NgayNhapColumn.DataPropertyName = "NgayNhap";
             this.NgayNhapColumn.HeaderText = "Ngày nhập";
             this.NgayNhapColumn.Name = "NgayNhapColumn";
             // 
             // MaChuongColumn
             // 
+            this.MaChuongColumn.DataPropertyName = "MaChuong";
             this.MaChuongColumn.HeaderText = "Mã chuồng";
             this.MaChuongColumn.Name = "MaChuongColumn";
             // 
             // SoLuongColumn
             // 
+            this.SoLuongColumn.DataPropertyName = "SoLuong";
             this.SoLuongColumn.HeaderText = "Số lượng";
             this.SoLuongColumn.Name = "SoLuongColumn";
             // 
@@ -410,12 +415,12 @@
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnTheoDoi;
         private System.Windows.Forms.DataGridView dgvVatNuoi;
+        private System.Windows.Forms.NumericUpDown nudSoLuong;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaVatNuoiColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenVatNuoiColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayNhapColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaChuongColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongColumn;
-        private System.Windows.Forms.NumericUpDown nudSoLuong;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

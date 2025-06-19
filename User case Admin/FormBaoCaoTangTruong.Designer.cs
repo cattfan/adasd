@@ -17,6 +17,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBaoCaoTangTruong));
             this.panelControl = new System.Windows.Forms.Panel();
             this.btnXemBaoCao = new System.Windows.Forms.Button();
             this.cbChonVatNuoi = new System.Windows.Forms.ComboBox();
@@ -64,7 +65,7 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(22, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 17);
+            this.label1.Size = new System.Drawing.Size(91, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Chọn vật nuôi:";
             // 
@@ -84,12 +85,14 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.panelControl);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormBaoCaoTangTruong";
             this.Text = "Báo Cáo Tăng Trưởng Vật Nuôi";
             this.Load += new System.EventHandler(this.FormBaoCaoTangTruong_Load);
             this.panelControl.ResumeLayout(false);
             this.panelControl.PerformLayout();
             this.ResumeLayout(false);
+
         }
 
         #endregion

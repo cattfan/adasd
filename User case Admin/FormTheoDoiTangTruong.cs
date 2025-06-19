@@ -49,9 +49,9 @@ namespace QuanLyChanNuoi.User_case_Admin
         {
             dgvLichSu.DataSource = null;
             var history = _context.LichSuTangTruongs
-                                  .Where(h => h.MaVatNuoi == _maVatNuoi)
-                                  .OrderByDescending(h => h.NgayKiemTra)
-                                  .ToList();
+                                    .Where(h => h.MaVatNuoi == _maVatNuoi)
+                                    .OrderByDescending(h => h.NgayKiemTra)
+                                    .ToList();
             dgvLichSu.DataSource = history;
             SetupDataGridView();
         }

@@ -107,34 +107,34 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 17);
+            this.label1.Size = new System.Drawing.Size(67, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã vật tư:";
             // 
             // txtMaSo
             // 
             this.txtMaSo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMaSo.Location = new System.Drawing.Point(82, 3);
+            this.txtMaSo.Location = new System.Drawing.Point(77, 3);
             this.txtMaSo.Name = "txtMaSo";
-            this.txtMaSo.Size = new System.Drawing.Size(286, 25);
+            this.txtMaSo.Size = new System.Drawing.Size(294, 25);
             this.txtMaSo.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(374, 5);
+            this.label3.Location = new System.Drawing.Point(377, 5);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 17);
+            this.label3.Size = new System.Drawing.Size(48, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "Đơn vị:";
             // 
             // txtDonVi
             // 
             this.txtDonVi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDonVi.Location = new System.Drawing.Point(454, 3);
+            this.txtDonVi.Location = new System.Drawing.Point(447, 3);
             this.txtDonVi.Name = "txtDonVi";
-            this.txtDonVi.Size = new System.Drawing.Size(287, 25);
+            this.txtDonVi.Size = new System.Drawing.Size(294, 25);
             this.txtDonVi.TabIndex = 5;
             // 
             // label2
@@ -143,23 +143,23 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(3, 32);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 17);
+            this.label2.Size = new System.Drawing.Size(68, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Tên vật tư:";
             // 
             // txtTen
             // 
             this.txtTen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTen.Location = new System.Drawing.Point(82, 30);
+            this.txtTen.Location = new System.Drawing.Point(77, 30);
             this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(286, 25);
+            this.txtTen.Size = new System.Drawing.Size(294, 25);
             this.txtTen.TabIndex = 6;
             // 
             // label6
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(374, 32);
+            this.label6.Location = new System.Drawing.Point(377, 32);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(64, 17);
             this.label6.TabIndex = 15;
@@ -168,9 +168,9 @@
             // txtSoLuong
             // 
             this.txtSoLuong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSoLuong.Location = new System.Drawing.Point(454, 30);
+            this.txtSoLuong.Location = new System.Drawing.Point(447, 30);
             this.txtSoLuong.Name = "txtSoLuong";
-            this.txtSoLuong.Size = new System.Drawing.Size(287, 25);
+            this.txtSoLuong.Size = new System.Drawing.Size(294, 25);
             this.txtSoLuong.TabIndex = 16;
             // 
             // label5
@@ -187,9 +187,9 @@
             // 
             this.txtTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.txtTimKiem, 3);
-            this.txtTimKiem.Location = new System.Drawing.Point(82, 57);
+            this.txtTimKiem.Location = new System.Drawing.Point(77, 57);
             this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(659, 25);
+            this.txtTimKiem.Size = new System.Drawing.Size(664, 25);
             this.txtTimKiem.TabIndex = 14;
             this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 

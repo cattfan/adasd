@@ -107,16 +107,16 @@
             // 
             this.txtMaVatNuoi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMaVatNuoi.Enabled = false;
-            this.txtMaVatNuoi.Location = new System.Drawing.Point(89, 3);
+            this.txtMaVatNuoi.Location = new System.Drawing.Point(90, 3);
             this.txtMaVatNuoi.Name = "txtMaVatNuoi";
-            this.txtMaVatNuoi.Size = new System.Drawing.Size(377, 25);
+            this.txtMaVatNuoi.Size = new System.Drawing.Size(381, 25);
             this.txtMaVatNuoi.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(472, 5);
+            this.label3.Location = new System.Drawing.Point(477, 5);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 17);
             this.label3.TabIndex = 2;
@@ -128,9 +128,9 @@
             this.dtNgayNhap.CustomFormat = "dd/MM/yyyy";
             this.dtNgayNhap.Enabled = false;
             this.dtNgayNhap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtNgayNhap.Location = new System.Drawing.Point(553, 3);
+            this.dtNgayNhap.Location = new System.Drawing.Point(560, 3);
             this.dtNgayNhap.Name = "dtNgayNhap";
-            this.dtNgayNhap.Size = new System.Drawing.Size(388, 25);
+            this.dtNgayNhap.Size = new System.Drawing.Size(381, 25);
             this.dtNgayNhap.TabIndex = 17;
             // 
             // label2
@@ -147,16 +147,16 @@
             // 
             this.txtTenVatNuoi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTenVatNuoi.Enabled = false;
-            this.txtTenVatNuoi.Location = new System.Drawing.Point(89, 30);
+            this.txtTenVatNuoi.Location = new System.Drawing.Point(90, 30);
             this.txtTenVatNuoi.Name = "txtTenVatNuoi";
-            this.txtTenVatNuoi.Size = new System.Drawing.Size(377, 25);
+            this.txtTenVatNuoi.Size = new System.Drawing.Size(381, 25);
             this.txtTenVatNuoi.TabIndex = 5;
             // 
             // label6
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(472, 32);
+            this.label6.Location = new System.Drawing.Point(477, 32);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(77, 17);
             this.label6.TabIndex = 15;
@@ -167,9 +167,9 @@
             this.cbMaChuong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbMaChuong.Enabled = false;
             this.cbMaChuong.FormattingEnabled = true;
-            this.cbMaChuong.Location = new System.Drawing.Point(553, 30);
+            this.cbMaChuong.Location = new System.Drawing.Point(560, 30);
             this.cbMaChuong.Name = "cbMaChuong";
-            this.cbMaChuong.Size = new System.Drawing.Size(388, 25);
+            this.cbMaChuong.Size = new System.Drawing.Size(381, 25);
             this.cbMaChuong.TabIndex = 16;
             // 
             // label4
@@ -185,16 +185,16 @@
             // txtSoLuong
             // 
             this.txtSoLuong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSoLuong.Location = new System.Drawing.Point(89, 57);
+            this.txtSoLuong.Location = new System.Drawing.Point(90, 57);
             this.txtSoLuong.Name = "txtSoLuong";
-            this.txtSoLuong.Size = new System.Drawing.Size(377, 25);
+            this.txtSoLuong.Size = new System.Drawing.Size(381, 25);
             this.txtSoLuong.TabIndex = 7;
             // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(472, 59);
+            this.label5.Location = new System.Drawing.Point(477, 59);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(63, 17);
             this.label5.TabIndex = 13;
@@ -203,9 +203,9 @@
             // txtTimKiem
             // 
             this.txtTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTimKiem.Location = new System.Drawing.Point(553, 57);
+            this.txtTimKiem.Location = new System.Drawing.Point(560, 57);
             this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(388, 25);
+            this.txtTimKiem.Size = new System.Drawing.Size(381, 25);
             this.txtTimKiem.TabIndex = 14;
             this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 
@@ -329,6 +329,7 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVatNuoi)).EndInit();
             this.ResumeLayout(false);
+
         }
 
         #endregion

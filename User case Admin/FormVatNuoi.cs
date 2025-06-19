@@ -26,6 +26,7 @@ namespace QuanLyChanNuoi
         {
             try
             {
+                dgvVatNuoi.AutoGenerateColumns = false;
                 SetupDataGridView();
                 LoadChuongDataIntoComboBox();
                 LoadAllVatNuoi();
@@ -55,16 +56,8 @@ namespace QuanLyChanNuoi
 
         private void BindGrid(List<VatNuoi> vatNuoiList)
         {
-            dgvVatNuoi.Rows.Clear();
-            foreach (var item in vatNuoiList)
-            {
-                int index = dgvVatNuoi.Rows.Add();
-                dgvVatNuoi.Rows[index].Cells["MaVatNuoiColumn"].Value = item.MaVatNuoi;
-                dgvVatNuoi.Rows[index].Cells["TenVatNuoiColumn"].Value = item.TenVatNuoi;
-                dgvVatNuoi.Rows[index].Cells["NgayNhapColumn"].Value = item.NgayNhap?.ToString("dd/MM/yyyy");
-                dgvVatNuoi.Rows[index].Cells["MaChuongColumn"].Value = item.MaChuong;
-                dgvVatNuoi.Rows[index].Cells["SoLuongColumn"].Value = item.SoLuong;
-            }
+            dgvVatNuoi.DataSource = null;
+            dgvVatNuoi.DataSource = vatNuoiList;
         }
 
         private void LoadAllVatNuoi()
@@ -111,7 +104,6 @@ namespace QuanLyChanNuoi
 
             return isValid;
         }
-
         private void btnThem_Click(object sender, EventArgs e)
         {
             if (!IsDataValid())
@@ -121,24 +113,69 @@ namespace QuanLyChanNuoi
 
             try
             {
+                var selectedChuong = cboMaChuong.SelectedItem as ChuongVatNuoi;
+                if (selectedChuong == null)
+                {
+                    MessageBox.Show("Chuồng được chọn không hợp lệ. Vui lòng chọn lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                string newMaVatNuoi;
+                var lastVatNuoi = context.VatNuois.Where(p => p.MaVatNuoi.StartsWith("VN"))
+                                                    .OrderByDescending(p => p.MaVatNuoi.Length)
+                                                    .ThenByDescending(p => p.MaVatNuoi)
+                                                    .FirstOrDefault();
+
+                if (lastVatNuoi == null)
+                {
+                    newMaVatNuoi = "VN01";
+                }
+                else
+                {
+                    string numericPart = lastVatNuoi.MaVatNuoi.Substring(2);
+                    int newIdNumber = int.Parse(numericPart) + 1;
+                    newMaVatNuoi = "VN" + newIdNumber.ToString("D2");
+                }
+
                 var newVatNuoi = new VatNuoi
                 {
-                    MaVatNuoi = "VN" + DateTime.Now.ToString("yyMMddHHmmss"),
+                    MaVatNuoi = newMaVatNuoi,
                     TenVatNuoi = txtTenVatNuoi.Text,
                     NgayNhap = dtNgayNhap.Value,
                     SoLuong = (int)nudSoLuong.Value,
-                    MaChuong = cboMaChuong.SelectedValue.ToString()
+                    MaChuong = selectedChuong.MaChuong
                 };
+
                 context.VatNuois.Add(newVatNuoi);
                 context.SaveChanges();
 
                 LoadAllVatNuoi();
-                MessageBox.Show("Thêm mới vật nuôi thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Thêm mới vật nuôi thành công! Mã mới là: " + newMaVatNuoi, "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ClearInputFields();
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+            {
+                var errorMessages = new System.Text.StringBuilder();
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        errorMessages.AppendFormat("Thuộc tính '{0}' bị lỗi: {1}",
+                            validationError.PropertyName, validationError.ErrorMessage);
+                        errorMessages.AppendLine();
+                    }
+                }
+                MessageBox.Show("Dữ liệu không hợp lệ, vui lòng kiểm tra lại:\n\n" + errorMessages.ToString(),
+                                "Lỗi Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Đã xảy ra lỗi khi thêm mới: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string errorMessage = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    errorMessage += "\n\nChi tiết: " + ex.InnerException.Message;
+                }
+                MessageBox.Show("Đã xảy ra lỗi: " + errorMessage, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -214,24 +251,19 @@ namespace QuanLyChanNuoi
             this.Close();
         }
 
-
-
         private void dgvVatNuoi_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.RowIndex < dgvVatNuoi.Rows.Count)
             {
-                DataGridViewRow row = dgvVatNuoi.Rows[e.RowIndex];
+                var vatNuoi = dgvVatNuoi.Rows[e.RowIndex].DataBoundItem as VatNuoi;
 
-                if (row.Cells["MaVatNuoiColumn"].Value != null)
+                if (vatNuoi != null)
                 {
-                    txtMaVatNuoi.Text = row.Cells["MaVatNuoiColumn"].Value.ToString();
-                    txtTenVatNuoi.Text = row.Cells["TenVatNuoiColumn"].Value.ToString();
-                    if (DateTime.TryParse(row.Cells["NgayNhapColumn"].Value.ToString(), out DateTime ngayNhap))
-                    {
-                        dtNgayNhap.Value = ngayNhap;
-                    }
-                    cboMaChuong.SelectedValue = row.Cells["MaChuongColumn"].Value;
-                    nudSoLuong.Value = Convert.ToDecimal(row.Cells["SoLuongColumn"].Value);
+                    txtMaVatNuoi.Text = vatNuoi.MaVatNuoi;
+                    txtTenVatNuoi.Text = vatNuoi.TenVatNuoi;
+                    dtNgayNhap.Value = vatNuoi.NgayNhap ?? DateTime.Now;
+                    cboMaChuong.SelectedValue = vatNuoi.MaChuong;
+                    nudSoLuong.Value = vatNuoi.SoLuong ?? 1;
                 }
             }
         }

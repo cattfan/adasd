@@ -102,34 +102,34 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 17);
+            this.label1.Size = new System.Drawing.Size(60, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã NCC:";
             // 
             // txtMaNhaCungCap
             // 
             this.txtMaNhaCungCap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMaNhaCungCap.Location = new System.Drawing.Point(70, 3);
+            this.txtMaNhaCungCap.Location = new System.Drawing.Point(72, 3);
             this.txtMaNhaCungCap.Name = "txtMaNhaCungCap";
-            this.txtMaNhaCungCap.Size = new System.Drawing.Size(296, 25);
+            this.txtMaNhaCungCap.Size = new System.Drawing.Size(298, 25);
             this.txtMaNhaCungCap.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(372, 5);
+            this.label2.Location = new System.Drawing.Point(376, 5);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 17);
+            this.label2.Size = new System.Drawing.Size(61, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Tên NCC:";
             // 
             // txtTenNhaCungCap
             // 
             this.txtTenNhaCungCap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTenNhaCungCap.Location = new System.Drawing.Point(440, 3);
+            this.txtTenNhaCungCap.Location = new System.Drawing.Point(443, 3);
             this.txtTenNhaCungCap.Name = "txtTenNhaCungCap";
-            this.txtTenNhaCungCap.Size = new System.Drawing.Size(301, 25);
+            this.txtTenNhaCungCap.Size = new System.Drawing.Size(298, 25);
             this.txtTenNhaCungCap.TabIndex = 6;
             // 
             // label3
@@ -146,9 +146,9 @@
             // 
             this.txtDiaChi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.txtDiaChi, 3);
-            this.txtDiaChi.Location = new System.Drawing.Point(70, 30);
+            this.txtDiaChi.Location = new System.Drawing.Point(72, 30);
             this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(671, 25);
+            this.txtDiaChi.Size = new System.Drawing.Size(669, 25);
             this.txtDiaChi.TabIndex = 5;
             // 
             // label5
@@ -165,9 +165,9 @@
             // 
             this.txtTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.txtTimKiem, 3);
-            this.txtTimKiem.Location = new System.Drawing.Point(70, 57);
+            this.txtTimKiem.Location = new System.Drawing.Point(72, 57);
             this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(671, 25);
+            this.txtTimKiem.Size = new System.Drawing.Size(669, 25);
             this.txtTimKiem.TabIndex = 14;
             this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 

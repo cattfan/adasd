@@ -91,34 +91,34 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 17);
+            this.label1.Size = new System.Drawing.Size(77, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã chuồng:";
             // 
             // txtMaChuong
             // 
             this.txtMaChuong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMaChuong.Location = new System.Drawing.Point(88, 3);
+            this.txtMaChuong.Location = new System.Drawing.Point(86, 3);
             this.txtMaChuong.Name = "txtMaChuong";
-            this.txtMaChuong.Size = new System.Drawing.Size(281, 25);
+            this.txtMaChuong.Size = new System.Drawing.Size(302, 25);
             this.txtMaChuong.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(375, 5);
+            this.label2.Location = new System.Drawing.Point(394, 5);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 17);
+            this.label2.Size = new System.Drawing.Size(38, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Vị trí:";
             // 
             // txtViTri
             // 
             this.txtViTri.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtViTri.Location = new System.Drawing.Point(418, 3);
+            this.txtViTri.Location = new System.Drawing.Point(438, 3);
             this.txtViTri.Name = "txtViTri";
-            this.txtViTri.Size = new System.Drawing.Size(323, 25);
+            this.txtViTri.Size = new System.Drawing.Size(303, 25);
             this.txtViTri.TabIndex = 6;
             // 
             // label3
@@ -127,16 +127,16 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(3, 32);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 17);
+            this.label3.Size = new System.Drawing.Size(61, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "Diện tích:";
             // 
             // txtDienTich
             // 
             this.txtDienTich.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDienTich.Location = new System.Drawing.Point(88, 30);
+            this.txtDienTich.Location = new System.Drawing.Point(86, 30);
             this.txtDienTich.Name = "txtDienTich";
-            this.txtDienTich.Size = new System.Drawing.Size(281, 25);
+            this.txtDienTich.Size = new System.Drawing.Size(302, 25);
             this.txtDienTich.TabIndex = 5;
             // 
             // label5
@@ -153,9 +153,9 @@
             // 
             this.txtTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.txtTimKiem, 3);
-            this.txtTimKiem.Location = new System.Drawing.Point(88, 57);
+            this.txtTimKiem.Location = new System.Drawing.Point(86, 57);
             this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(653, 25);
+            this.txtTimKiem.Size = new System.Drawing.Size(655, 25);
             this.txtTimKiem.TabIndex = 14;
             this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 
@@ -295,6 +295,7 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvChuongNuoi)).EndInit();
             this.ResumeLayout(false);
+
         }
 
         #endregion
