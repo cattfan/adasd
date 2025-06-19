@@ -79,10 +79,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormBaoCaoTangTruong.cs">
+    <Compile Include="User case Admin\FormBaoCaoTangTruong.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormBaoCaoTangTruong.Designer.cs">
+    <Compile Include="User case Admin\FormBaoCaoTangTruong.Designer.cs">
       <DependentUpon>FormBaoCaoTangTruong.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\LichSuTangTruong.cs" />
@@ -92,10 +92,10 @@
     <Compile Include="User case Admin\FormTheoDoiTangTruong.Designer.cs">
       <DependentUpon>FormTheoDoiTangTruong.cs</DependentUpon>
     </Compile>
-    <Compile Include="usercase nhan vien\FormHomeUser.cs">
+    <Compile Include="Usercase nhan vien\FormHomeUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="usercase nhan vien\FormHomeUser.Designer.cs">
+    <Compile Include="Usercase nhan vien\FormHomeUser.Designer.cs">
       <DependentUpon>FormHomeUser.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
@@ -176,29 +176,29 @@
     <Compile Include="User case Admin\FormXemhoadon.Designer.cs">
       <DependentUpon>FormXemhoadon.cs</DependentUpon>
     </Compile>
-    <Compile Include="usercase nhan vien\FormQuanLyVatTuNV.cs">
+    <Compile Include="Usercase nhan vien\FormQuanLyVatTuNV.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="usercase nhan vien\FormQuanLyVatTuNV.Designer.cs">
+    <Compile Include="Usercase nhan vien\FormQuanLyVatTuNV.Designer.cs">
       <DependentUpon>FormQuanLyVatTuNV.cs</DependentUpon>
     </Compile>
-    <Compile Include="usercase nhan vien\FormVatNuoiNV.cs">
+    <Compile Include="Usercase nhan vien\FormVatNuoiNV.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="usercase nhan vien\FormVatNuoiNV.Designer.cs">
+    <Compile Include="Usercase nhan vien\FormVatNuoiNV.Designer.cs">
       <DependentUpon>FormVatNuoiNV.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FormBaoCaoTangTruong.resx">
+    <EmbeddedResource Include="User case Admin\FormBaoCaoTangTruong.resx">
       <DependentUpon>FormBaoCaoTangTruong.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ThongKeTongQuat.rdlc" />
+    <EmbeddedResource Include="ThongKe\ThongKeTongQuat.rdlc" />
     <EmbeddedResource Include="User case Admin\FormTheoDoiTangTruong.resx">
       <DependentUpon>FormTheoDoiTangTruong.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="usercase nhan vien\FormHomeUser.resx">
+    <EmbeddedResource Include="Usercase nhan vien\FormHomeUser.resx">
       <DependentUpon>FormHomeUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BaoCaoTangTruong.rdlc">
+    <EmbeddedResource Include="ThongKe\BaoCaoTangTruong.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="User case Admin\FormThongKeTongQuat.resx">
@@ -242,10 +242,10 @@
     <EmbeddedResource Include="User case Admin\FormXemhoadon.resx">
       <DependentUpon>FormXemhoadon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="usercase nhan vien\FormQuanLyVatTuNV.resx">
+    <EmbeddedResource Include="Usercase nhan vien\FormQuanLyVatTuNV.resx">
       <DependentUpon>FormQuanLyVatTuNV.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="usercase nhan vien\FormVatNuoiNV.resx">
+    <EmbeddedResource Include="Usercase nhan vien\FormVatNuoiNV.resx">
       <DependentUpon>FormVatNuoiNV.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="img\Icon\hop1.png" />

@@ -1,6 +1,7 @@
 ﻿using QuanLyChanNuoi.Models;
 using System;
 using System.Data;
+using System.Data.Entity;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
@@ -60,14 +61,18 @@ namespace QuanLyChanNuoi.User_case_Admin
             dgvLichSu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             if (dgvLichSu.Columns.Count > 0)
             {
-                dgvLichSu.Columns["ID"].Visible = false; // Ẩn cột ID
+                dgvLichSu.Columns["ID"].Visible = false;
                 dgvLichSu.Columns["NgayKiemTra"].HeaderText = "Ngày Kiểm Tra";
                 dgvLichSu.Columns["SoLuongMau"].HeaderText = "SL Mẫu";
-                dgvLichSu.Columns["TongCanNangMau"].HeaderText = "Tổng cân nặng";
+                dgvLichSu.Columns["TongCanNangMau"].HeaderText = "Tổng Cân Nặng";
                 dgvLichSu.Columns["CanNangTrungBinhMau"].HeaderText = "Cân Nặng TB (kg)";
                 dgvLichSu.Columns["SoLuongThucTeTrongDan"].HeaderText = "SL Đàn";
                 dgvLichSu.Columns["TongTrongLuongUocTinh"].HeaderText = "Tổng KG Ước Tính";
                 dgvLichSu.Columns["GhiChu"].HeaderText = "Ghi Chú";
+
+                // Format a specific column if needed
+                dgvLichSu.Columns["CanNangTrungBinhMau"].DefaultCellStyle.Format = "N2";
+                dgvLichSu.Columns["TongTrongLuongUocTinh"].DefaultCellStyle.Format = "N2";
             }
         }
 
@@ -75,14 +80,11 @@ namespace QuanLyChanNuoi.User_case_Admin
         {
             txtTongCanNangMau.TextChanged += TinhCanNangTrungBinh;
             numSoLuongMau.ValueChanged += TinhCanNangTrungBinh;
-            btnThem.Click += btnThem_Click;
-            btnXoa.Click += btnXoa_Click;
-            dgvLichSu.CellClick += dgvLichSu_CellClick;
         }
 
         private void TinhCanNangTrungBinh(object sender, EventArgs e)
         {
-            double.TryParse(txtTongCanNangMau.Text, NumberStyles.Any, CultureInfo.InvariantCulture, out double tongCanNang);
+            double.TryParse(txtTongCanNangMau.Text.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out double tongCanNang);
             int soLuongMau = (int)numSoLuongMau.Value;
             txtCanNangTB.Text = (soLuongMau > 0 && tongCanNang > 0) ? (tongCanNang / soLuongMau).ToString("0.##") : "0";
         }
@@ -93,16 +95,13 @@ namespace QuanLyChanNuoi.User_case_Admin
             {
                 if (numSoLuongMau.Value <= 0 || string.IsNullOrWhiteSpace(txtTongCanNangMau.Text))
                 {
-                    MessageBox.Show("Vui lòng nhập đủ thông tin Số lượng mẫu và Tổng cân nặng.", "Cảnh báo");
+                    MessageBox.Show("Vui lòng nhập đủ thông tin Số lượng mẫu và Tổng cân nặng.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                double tongCanNang;
-                // Đọc giá trị từ textbox một cách an toàn, chấp nhận cả dấu '.' và ','
-                if (!double.TryParse(txtTongCanNangMau.Text, NumberStyles.Any, CultureInfo.CurrentCulture, out tongCanNang) &&
-                    !double.TryParse(txtTongCanNangMau.Text, NumberStyles.Any, CultureInfo.InvariantCulture, out tongCanNang))
+                if (!double.TryParse(txtTongCanNangMau.Text.Replace(",", "."), NumberStyles.Any, CultureInfo.InvariantCulture, out double tongCanNang))
                 {
-                    MessageBox.Show("Tổng cân nặng không hợp lệ. Vui lòng kiểm tra lại.", "Lỗi");
+                    MessageBox.Show("Tổng cân nặng không hợp lệ. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -117,27 +116,32 @@ namespace QuanLyChanNuoi.User_case_Admin
                     TongCanNangMau = tongCanNang,
                     CanNangTrungBinhMau = canNangTB,
                     SoLuongThucTeTrongDan = (int)numSoLuongThucTe.Value,
-                    GhiChu = txtGhiChu.Text
+                    GhiChu = txtGhiChu.Text,
+                    TongTrongLuongUocTinh = canNangTB * (int)numSoLuongThucTe.Value
                 };
-                newRecord.TongTrongLuongUocTinh = newRecord.CanNangTrungBinhMau * newRecord.SoLuongThucTeTrongDan;
 
                 _context.LichSuTangTruongs.Add(newRecord);
                 _context.SaveChanges();
 
-                MessageBox.Show("Thêm thành công!", "Thông báo");
+                MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 BindGrid();
+                ClearInputFields();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi thêm: " + ex.InnerException?.Message ?? ex.Message, "Lỗi");
+                MessageBox.Show("Lỗi khi thêm: " + (ex.InnerException?.Message ?? ex.Message), "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            ClearInputFields();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (dgvLichSu.CurrentRow == null) return;
-            if (MessageBox.Show("Bạn có chắc muốn xóa?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (dgvLichSu.CurrentRow == null)
+            {
+                MessageBox.Show("Vui lòng chọn một dòng để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (MessageBox.Show("Bạn có chắc muốn xóa?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 int id = (int)dgvLichSu.CurrentRow.Cells["ID"].Value;
                 var record = _context.LichSuTangTruongs.Find(id);
@@ -146,49 +150,51 @@ namespace QuanLyChanNuoi.User_case_Admin
                     _context.LichSuTangTruongs.Remove(record);
                     _context.SaveChanges();
                     BindGrid();
+                    ClearInputFields();
                 }
             }
-            ClearInputFields();
         }
 
         private void dgvLichSu_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
-            int id = (int)dgvLichSu.Rows[e.RowIndex].Cells["ID"].Value;
-            var record = _context.LichSuTangTruongs.Find(id);
-            if (record != null)
+            try
             {
-                dtpNgayKiemTra.Value = record.NgayKiemTra;
-                numSoLuongMau.Value = record.SoLuongMau ?? 1;
-                txtTongCanNangMau.Text = record.TongCanNangMau?.ToString();
-                numSoLuongThucTe.Value = record.SoLuongThucTeTrongDan ?? 0;
-                txtGhiChu.Text = record.GhiChu;
+                int id = (int)dgvLichSu.Rows[e.RowIndex].Cells["ID"].Value;
+                var record = _context.LichSuTangTruongs.Find(id);
+                if (record != null)
+                {
+                    dtpNgayKiemTra.Value = record.NgayKiemTra;
+                    numSoLuongMau.Value = record.SoLuongMau ?? 1;
+                    txtTongCanNangMau.Text = record.TongCanNangMau?.ToString(CultureInfo.CurrentCulture);
+                    numSoLuongThucTe.Value = record.SoLuongThucTeTrongDan ?? 0;
+                    txtGhiChu.Text = record.GhiChu;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi chọn dòng: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Close();
         }
+
         private void ClearInputFields()
         {
-            // Xóa lựa chọn trên DataGridView
             dgvLichSu.ClearSelection();
-
-            // Reset các control nhập liệu về giá trị mặc định
             dtpNgayKiemTra.Value = DateTime.Now;
-            numSoLuongMau.Value = 1; // Hoặc giá trị mặc định bạn muốn
+            numSoLuongMau.Value = 1;
             txtTongCanNangMau.Clear();
             txtGhiChu.Clear();
 
-            // Cập nhật lại số lượng thực tế từ thông tin lô ban đầu
             var vatNuoi = _context.VatNuois.FirstOrDefault(v => v.MaVatNuoi == _maVatNuoi);
             if (vatNuoi != null)
             {
                 numSoLuongThucTe.Value = vatNuoi.SoLuong ?? 0;
             }
-
-            // Đưa con trỏ về ô nhập liệu đầu tiên
             dtpNgayKiemTra.Focus();
         }
     }

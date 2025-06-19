@@ -106,5 +106,13 @@ namespace QuanLyChanNuoi
         {
 
         }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            this.Hide(); // Ẩn form admin trước khi mở form vật nuôi
+            FormBaoCaoTangTruong formbaocaotangtruong = new FormBaoCaoTangTruong();
+            formbaocaotangtruong.FormClosed += (s, args) => this.Show(); // Hiển thị lại form admin khi form nhà cung cấp đóng
+            formbaocaotangtruong.Show();
+        }
     }
 }

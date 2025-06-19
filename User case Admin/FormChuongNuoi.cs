@@ -30,193 +30,163 @@ namespace QuanLyChanNuoi
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message);
+                MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void BindGrid(List<ChuongVatNuoi> chuongVatNuois)
         {
-            dvgChuongnuoi.Rows.Clear();
+            dgvChuongNuoi.Rows.Clear();
             foreach (var item in chuongVatNuois)
             {
-                int index = dvgChuongnuoi.Rows.Add();
-                dvgChuongnuoi.Rows[index].Cells[0].Value = item.MaChuong;
-                dvgChuongnuoi.Rows[index].Cells[1].Value = item.ViTri;
-                dvgChuongnuoi.Rows[index].Cells[2].Value = item.DienTich.HasValue
-                    ? item.DienTich.Value.ToString("F2")
-                    : "0.00";
+                int index = dgvChuongNuoi.Rows.Add();
+                dgvChuongNuoi.Rows[index].Cells[0].Value = item.MaChuong;
+                dgvChuongNuoi.Rows[index].Cells[1].Value = item.ViTri;
+                dgvChuongNuoi.Rows[index].Cells[2].Value = item.DienTich.HasValue ? item.DienTich.Value.ToString("N2") : "0.00";
             }
         }
 
-        private void dvgChuongnuoi_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void ClearInputFields()
+        {
+            txtMaChuong.Clear();
+            txtViTri.Clear();
+            txtDienTich.Clear();
+            txtMaChuong.Enabled = true;
+            txtMaChuong.Focus();
+        }
+
+        private void dgvChuongNuoi_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = dvgChuongnuoi.Rows[e.RowIndex];
-
-                txtMachuong.Text = row.Cells[0].Value?.ToString();
-                txtVitri.Text = row.Cells[1].Value?.ToString();
-                txtDientich.Text = row.Cells[2].Value?.ToString();
+                DataGridViewRow row = dgvChuongNuoi.Rows[e.RowIndex];
+                txtMaChuong.Text = row.Cells[0].Value?.ToString();
+                txtViTri.Text = row.Cells[1].Value?.ToString();
+                txtDienTich.Text = row.Cells[2].Value?.ToString();
+                txtMaChuong.Enabled = false;
             }
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            // Kiểm tra đầu vào
-            if (string.IsNullOrWhiteSpace(txtMachuong.Text) ||
-                string.IsNullOrWhiteSpace(txtVitri.Text) ||
-                string.IsNullOrWhiteSpace(txtDientich.Text))
-            {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin.");
-                return;
-            }
-
-            // Kiểm tra Mã chuồng đã tồn tại chưa
-            string maChuong = txtMachuong.Text.Trim();
-            var existing = db.ChuongVatNuois.Find(maChuong);
-            if (existing != null)
-            {
-                MessageBox.Show("Mã chuồng đã tồn tại. Vui lòng nhập mã khác.");
-                return;
-            }
-
-            // Parse diện tích
-            if (!double.TryParse(txtDientich.Text.Trim(), out double dientich))
-            {
-                MessageBox.Show("Diện tích không hợp lệ.");
-                return;
-            }
-
-            ChuongVatNuoi chuong = new ChuongVatNuoi
-            {
-                MaChuong = maChuong,
-                ViTri = txtVitri.Text.Trim(),
-                DienTich = (decimal?)dientich 
-            };
-
             try
             {
+                if (string.IsNullOrWhiteSpace(txtMaChuong.Text) || string.IsNullOrWhiteSpace(txtViTri.Text))
+                {
+                    MessageBox.Show("Mã chuồng và Vị trí không được để trống.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (db.ChuongVatNuois.Any(c => c.MaChuong == txtMaChuong.Text))
+                {
+                    MessageBox.Show("Mã chuồng đã tồn tại.", "Trùng mã", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (!decimal.TryParse(txtDienTich.Text, out decimal dienTich) || dienTich < 0)
+                {
+                    MessageBox.Show("Diện tích không hợp lệ. Phải là một số không âm.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                ChuongVatNuoi chuong = new ChuongVatNuoi
+                {
+                    MaChuong = txtMaChuong.Text.Trim(),
+                    ViTri = txtViTri.Text.Trim(),
+                    DienTich = dienTich
+                };
+
                 db.ChuongVatNuois.Add(chuong);
                 db.SaveChanges();
-                MessageBox.Show("Thêm chuồng mới thành công.");
+                MessageBox.Show("Thêm chuồng mới thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 LoadChuong();
-                ClearTextBoxes();
+                ClearInputFields();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi thêm: " + ex.Message);
+                MessageBox.Show("Lỗi khi thêm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtMachuong.Text))
-            {
-                MessageBox.Show("Vui lòng chọn chuồng để sửa.");
-                return;
-            }
-
-            string maChuong = txtMachuong.Text.Trim();
-            var chuong = db.ChuongVatNuois.Find(maChuong);
-            if (chuong == null)
-            {
-                MessageBox.Show("Không tìm thấy chuồng để sửa.");
-                return;
-            }
-
-            // Parse diện tích
-            if (!double.TryParse(txtDientich.Text.Trim(), out double dientich))
-            {
-                MessageBox.Show("Diện tích không hợp lệ.");
-                return;
-            }
-
-            chuong.ViTri = txtVitri.Text.Trim();
-            chuong.DienTich = (decimal?)dientich;
-
             try
             {
+                var chuong = db.ChuongVatNuois.Find(txtMaChuong.Text);
+                if (chuong == null)
+                {
+                    MessageBox.Show("Không tìm thấy chuồng để sửa. Vui lòng chọn một chuồng từ danh sách.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (!decimal.TryParse(txtDienTich.Text, out decimal dienTich) || dienTich < 0)
+                {
+                    MessageBox.Show("Diện tích không hợp lệ. Phải là một số không âm.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                chuong.ViTri = txtViTri.Text.Trim();
+                chuong.DienTich = dienTich;
+
                 db.SaveChanges();
-                MessageBox.Show("Cập nhật thông tin thành công.");
+                MessageBox.Show("Cập nhật thông tin thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 LoadChuong();
-                ClearTextBoxes();
+                ClearInputFields();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi sửa: " + ex.Message);
+                MessageBox.Show("Lỗi khi sửa: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (dvgChuongnuoi.SelectedRows.Count == 0)
+            try
             {
-                MessageBox.Show("Vui lòng chọn chuồng cần xóa.");
-                return;
-            }
-
-            var confirm = MessageBox.Show("Bạn có chắc muốn xóa chuồng này?", "Xác nhận", MessageBoxButtons.YesNo);
-            if (confirm == DialogResult.No) return;
-
-            string maChuong = dvgChuongnuoi.SelectedRows[0].Cells[0].Value.ToString();
-            var chuong = db.ChuongVatNuois.Find(maChuong);
-
-            if (chuong != null)
-            {
-                db.ChuongVatNuois.Remove(chuong);
-                try
+                var chuong = db.ChuongVatNuois.Find(txtMaChuong.Text);
+                if (chuong == null)
                 {
+                    MessageBox.Show("Không tìm thấy chuồng để xóa. Vui lòng chọn một chuồng từ danh sách.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (MessageBox.Show($"Bạn có chắc muốn xóa chuồng '{chuong.MaChuong}' không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    db.ChuongVatNuois.Remove(chuong);
                     db.SaveChanges();
-                    MessageBox.Show("Xóa chuồng thành công.");
+                    MessageBox.Show("Xóa chuồng thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     LoadChuong();
-                    ClearTextBoxes();
+                    ClearInputFields();
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi khi xóa chuồng: " + ex.Message);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xóa chuồng: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string keyword = txtTimKiem.Text.Trim().ToLower();
+                var searchResults = db.ChuongVatNuois
+                                      .Where(c => c.MaChuong.ToLower().Contains(keyword) || c.ViTri.ToLower().Contains(keyword))
+                                      .ToList();
+                BindGrid(searchResults);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        // Hàm xóa nội dung các textbox
-        private void ClearTextBoxes()
-        {
-            txtMachuong.Clear();
-            txtVitri.Clear();
-            txtDientich.Clear();
-        }
-
-        private void txtTimkiem_TextChanged(object sender, EventArgs e)
-        {
-            string keyword = txtTimkiem.Text.Trim();
-
-            try
-            {
-                List<ChuongVatNuoi> searchResults;
-
-                if (string.IsNullOrWhiteSpace(keyword))
-                {
-                    // If search box is empty, load all
-                    searchResults = db.ChuongVatNuois.ToList();
-                }
-                else
-                {
-                    // Search by ViTri (Khu)
-                    searchResults = db.ChuongVatNuois
-                                      .Where(c => c.ViTri.Contains(keyword))
-                                      .ToList();
-                }
-                BindGrid(searchResults);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message);
-            }
         }
     }
 }

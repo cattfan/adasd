@@ -6,7 +6,6 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Data.Entity;
 
-
 namespace QuanLyChanNuoi.usercase_nhan_vien
 {
     public partial class FormVatNuoiNV : Form
@@ -16,41 +15,41 @@ namespace QuanLyChanNuoi.usercase_nhan_vien
         {
             InitializeComponent();
         }
+
         private void FormVatNuoi_Load(object sender, EventArgs e)
         {
-            LoadVatNuoi();
-            LoadComboBoxes();
-            ClearInputFields();
+            try
+            {
+                LoadVatNuoi();
+                LoadComboBoxes();
+                ClearInputFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải form: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void LoadVatNuoi()
         {
-            try
-            {
-                List<VatNuoi> dsVatNuoi = db.VatNuois
-                                            .Include(vn => vn.ChuongVatNuois)
-                                            .ToList();
-                BindGrid(dsVatNuoi);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi tải dữ liệu Vật nuôi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            List<VatNuoi> dsVatNuoi = db.VatNuois
+                                        .Include(vn => vn.ChuongVatNuois)
+                                        .ToList();
+            BindGrid(dsVatNuoi);
         }
 
         private void LoadComboBoxes()
         {
             try
             {
-                var danhSachChuong = db.ChuongVatNuois.ToList();
-                cbMaChuong.DataSource = danhSachChuong;
+                cbMaChuong.DataSource = db.ChuongVatNuois.ToList();
                 cbMaChuong.DisplayMember = "MaChuong";
                 cbMaChuong.ValueMember = "MaChuong";
                 cbMaChuong.SelectedIndex = -1;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi tải dữ liệu ComboBoxes: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi khi tải danh sách chuồng: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -62,7 +61,7 @@ namespace QuanLyChanNuoi.usercase_nhan_vien
                 int index = dgvVatNuoi.Rows.Add();
                 dgvVatNuoi.Rows[index].Cells[0].Value = vn.MaVatNuoi;
                 dgvVatNuoi.Rows[index].Cells[1].Value = vn.TenVatNuoi;
-                dgvVatNuoi.Rows[index].Cells[2].Value = vn.NgayNhap?.ToString("dd/MM/yyyy") ?? "";
+                dgvVatNuoi.Rows[index].Cells[2].Value = vn.NgayNhap.HasValue ? vn.NgayNhap.Value.ToString("dd/MM/yyyy") : "";
                 dgvVatNuoi.Rows[index].Cells[3].Value = vn.MaChuong;
                 dgvVatNuoi.Rows[index].Cells[4].Value = vn.SoLuong;
             }
@@ -75,6 +74,10 @@ namespace QuanLyChanNuoi.usercase_nhan_vien
             dtNgayNhap.Value = DateTime.Now;
             cbMaChuong.SelectedIndex = -1;
             txtSoLuong.Clear();
+            txtTenVatNuoi.Enabled = false;
+            dtNgayNhap.Enabled = false;
+            cbMaChuong.Enabled = false;
+            txtSoLuong.Enabled = true;
             txtMaVatNuoi.Focus();
         }
 
@@ -85,79 +88,50 @@ namespace QuanLyChanNuoi.usercase_nhan_vien
                 DataGridViewRow row = dgvVatNuoi.Rows[e.RowIndex];
                 txtMaVatNuoi.Text = row.Cells[0].Value?.ToString();
                 txtTenVatNuoi.Text = row.Cells[1].Value?.ToString();
-                dtNgayNhap.Value = DateTime.TryParse(row.Cells[2].Value?.ToString(), out var date) ? date : DateTime.Now;
-                string maChuongFromGrid = row.Cells[3].Value?.ToString();
-                if (!string.IsNullOrEmpty(maChuongFromGrid))
+                if (DateTime.TryParse(row.Cells[2].Value?.ToString(), out var date))
                 {
-                    cbMaChuong.SelectedValue = maChuongFromGrid;
+                    dtNgayNhap.Value = date;
                 }
-                else
-                {
-                    cbMaChuong.SelectedIndex = -1;
-                }
-
+                cbMaChuong.SelectedValue = row.Cells[3].Value?.ToString();
                 txtSoLuong.Text = row.Cells[4].Value?.ToString();
             }
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-           
-        }
-
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtMaVatNuoi.Text) || string.IsNullOrWhiteSpace(txtTenVatNuoi.Text) || cbMaChuong.SelectedValue == null)
+            if (string.IsNullOrWhiteSpace(txtMaVatNuoi.Text))
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ Mã, Tên Vật nuôi và chọn Chuồng để sửa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng chọn một vật nuôi để sửa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            string maVN = txtMaVatNuoi.Text.Trim();
-
             try
             {
-                VatNuoi vnToUpdate = db.VatNuois.Find(maVN);
+                VatNuoi vnToUpdate = db.VatNuois.Find(txtMaVatNuoi.Text.Trim());
 
                 if (vnToUpdate != null)
                 {
-                    vnToUpdate.TenVatNuoi = txtTenVatNuoi.Text.Trim();
-                    vnToUpdate.NgayNhap = dtNgayNhap.Value;
-                    vnToUpdate.MaChuong = cbMaChuong.SelectedValue.ToString();
-
-                    int? soLuong = null;
-                    if (!string.IsNullOrWhiteSpace(txtSoLuong.Text))
+                    if (!int.TryParse(txtSoLuong.Text, out int soLuong) || soLuong < 0)
                     {
-                        if (int.TryParse(txtSoLuong.Text, out int parsedSoLuong))
-                        {
-                            soLuong = parsedSoLuong;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Số lượng không hợp lệ. Vui lòng nhập số nguyên.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
+                        MessageBox.Show("Số lượng không hợp lệ. Vui lòng nhập số nguyên không âm.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
+
                     vnToUpdate.SoLuong = soLuong;
 
                     db.SaveChanges();
-                    MessageBox.Show("Cập nhật Vật nuôi thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Cập nhật số lượng vật nuôi thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadVatNuoi();
                     ClearInputFields();
                 }
                 else
                 {
-                    MessageBox.Show("Không tìm thấy Vật nuôi có mã này để sửa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Không tìm thấy vật nuôi có mã này để sửa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi sửa Vật nuôi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi khi sửa vật nuôi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -171,10 +145,10 @@ namespace QuanLyChanNuoi.usercase_nhan_vien
             string keyword = txtTimKiem.Text.Trim().ToLower();
 
             var filteredList = db.VatNuois
-                                 .Where(vn => vn.MaVatNuoi.ToLower().Contains(keyword) ||
-                                               vn.TenVatNuoi.ToLower().Contains(keyword) ||
-                                               vn.MaChuong.ToLower().Contains(keyword))
-                                 .ToList();
+                                   .Where(vn => vn.MaVatNuoi.ToLower().Contains(keyword) ||
+                                                vn.TenVatNuoi.ToLower().Contains(keyword) ||
+                                                vn.MaChuong.ToLower().Contains(keyword))
+                                   .ToList();
 
             BindGrid(filteredList);
         }
