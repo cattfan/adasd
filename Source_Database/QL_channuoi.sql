@@ -207,7 +207,20 @@ INSERT INTO [dbo].[HoaDon] ([MaHoaDon], [NgayLap]) VALUES (@MaHD2, '2024-06-10')
 INSERT INTO [dbo].[ChiTietHoaDon] ([MaHoaDon], [STT], [LoaiMatHang], [MaMatHang], [SoLuong], [DonGia], [MaNhanVien], [MaNhaCungCap]) VALUES
 (@MaHD2, 1, N'Vật tư', 'VT03', 150, 320000, 'NV01', 'NCC03');
 GO
-
+CREATE TABLE [dbo].[LichSuTangTruong] (
+    [ID] INT IDENTITY(1,1) PRIMARY KEY,   -- Khóa chính, tự động tăng, tương ứng với ID trong C#
+    [MaVatNuoi] NVARCHAR(50) NOT NULL,     -- NVARCHAR(50) cho mã vật nuôi (có thể cần khớp với độ dài trong C# nếu là string)
+    [NgayKiemTra] DATETIME NOT NULL,       -- DATETIME cho DateTime trong C#, nếu bạn chỉ cần ngày thì dùng DATE
+    [SoLuongMau] INT,                      -- INT cho int?, cho phép NULL
+    [TongCanNangMau] FLOAT,                 -- FLOAT cho double?, cho phép NULL (DOUBLE PRECISION trong một số DB khác)
+    [CanNangTrungBinhMau] FLOAT,            -- FLOAT cho double?, cho phép NULL
+    [SoLuongThucTeTrongDan] INT,           -- INT cho int?, cho phép NULL
+    [TongTrongLuongUocTinh] FLOAT,         -- FLOAT cho double?, cho phép NULL
+    [GhiChu] NVARCHAR(MAX)                  -- NVARCHAR(MAX) cho string, cho phép NULL
+    -- Thêm ràng buộc khóa ngoại nếu cần, ví dụ:
+    CONSTRAINT FK_LichSuTangTruong_VatNuoi FOREIGN KEY ([MaVatNuoi]) REFERENCES [dbo].[VatNuoi]([MaVatNuoi])
+);
+go
 -- Bảng Lịch Sử Tăng Trưởng 
 IF OBJECT_ID('dbo.LichSuTangTruong', 'U') IS NOT NULL
 BEGIN
