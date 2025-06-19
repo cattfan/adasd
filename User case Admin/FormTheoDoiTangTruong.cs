@@ -69,8 +69,6 @@ namespace QuanLyChanNuoi.User_case_Admin
                 dgvLichSu.Columns["SoLuongThucTeTrongDan"].HeaderText = "SL Đàn";
                 dgvLichSu.Columns["TongTrongLuongUocTinh"].HeaderText = "Tổng KG Ước Tính";
                 dgvLichSu.Columns["GhiChu"].HeaderText = "Ghi Chú";
-
-                // Format a specific column if needed
                 dgvLichSu.Columns["CanNangTrungBinhMau"].DefaultCellStyle.Format = "N2";
                 dgvLichSu.Columns["TongTrongLuongUocTinh"].DefaultCellStyle.Format = "N2";
             }

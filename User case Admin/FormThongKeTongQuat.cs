@@ -32,7 +32,7 @@ namespace QuanLyChanNuoi.User_case_Admin
 
                 ReportDataSource rds = new ReportDataSource("ThongKeDataSet", thongKeData);
 
-                reportViewer1.LocalReport.ReportEmbeddedResource = "QuanLyChanNuoi.ThongKeTongQuat.rdlc";
+                reportViewer1.LocalReport.ReportEmbeddedResource = "QuanLyChanNuoi.ThongKe.ThongKeTongQuat.rdlc";
 
                 reportViewer1.LocalReport.DataSources.Clear();
                 reportViewer1.LocalReport.DataSources.Add(rds);

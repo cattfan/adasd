@@ -51,7 +51,7 @@ namespace QuanLyChanNuoi.User_case_Admin
                 }
 
                 ReportDataSource rds = new ReportDataSource("DataSetTangTruong", duLieuBaoCao);
-                reportViewer1.LocalReport.ReportEmbeddedResource = "QuanLyChanNuoi.BaoCaoTangTruong.rdlc";
+                reportViewer1.LocalReport.ReportEmbeddedResource = "QuanLyChanNuoi.ThongKe.BaoCaoTangTruong.rdlc";
                 reportViewer1.LocalReport.DataSources.Clear();
                 reportViewer1.LocalReport.DataSources.Add(rds);
                 reportViewer1.RefreshReport();

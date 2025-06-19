@@ -191,7 +191,9 @@
     <EmbeddedResource Include="User case Admin\FormBaoCaoTangTruong.resx">
       <DependentUpon>FormBaoCaoTangTruong.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ThongKe\ThongKeTongQuat.rdlc" />
+    <EmbeddedResource Include="ThongKe\ThongKeTongQuat.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="User case Admin\FormTheoDoiTangTruong.resx">
       <DependentUpon>FormTheoDoiTangTruong.cs</DependentUpon>
     </EmbeddedResource>
@@ -293,16 +295,16 @@
     <Content Include="img\ico\Logo.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SqlServerTypes\x86\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
